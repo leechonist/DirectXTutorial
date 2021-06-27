@@ -25,9 +25,6 @@
     <Filter Include="헤더 파일\System\Graphics\Model">
       <UniqueIdentifier>{fb6bcfec-3514-43d1-9c12-1cae78ac62d9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Model">
-      <UniqueIdentifier>{722f8b7b-8f9f-4747-ad96-7e8cc8431dc4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Object">
       <UniqueIdentifier>{64982ff9-090f-4e08-b9a9-84aab216ea76}</UniqueIdentifier>
     </Filter>
@@ -37,8 +34,29 @@
     <Filter Include="헤더 파일\System\Graphics\Font">
       <UniqueIdentifier>{c6ef6962-e50d-456b-a787-dfceb4b84ad9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Font">
+    <Filter Include="헤더 파일\System\Sound">
+      <UniqueIdentifier>{62ac5ff3-0ea0-4501-b32f-ffa3f8a58184}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Sound">
+      <UniqueIdentifier>{57c8499c-356e-4b29-ad28-8c2bd8d2e30b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\System\Input">
+      <UniqueIdentifier>{089f89c9-9c58-482c-b586-657e5d140c18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Input">
+      <UniqueIdentifier>{4a1d409b-66ee-45bc-83d0-e6e9e8646a09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Graphics">
+      <UniqueIdentifier>{d4205657-ed66-4a9e-91f7-73ba49f18062}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Graphics\Model">
+      <UniqueIdentifier>{722f8b7b-8f9f-4747-ad96-7e8cc8431dc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Graphics\Font">
       <UniqueIdentifier>{ca1212f0-6d59-40a2-9052-7a1e5df15298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound">
+      <UniqueIdentifier>{6d7e5e48-069c-48c8-8750-9d0f825217cb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -55,9 +73,6 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="systemclass.h">
-      <Filter>헤더 파일\System</Filter>
-    </ClInclude>
-    <ClInclude Include="inputclass.h">
       <Filter>헤더 파일\System</Filter>
     </ClInclude>
     <ClInclude Include="graphicsclass.h">
@@ -87,6 +102,12 @@
     <ClInclude Include="textclass.h">
       <Filter>헤더 파일\System\Graphics\Font</Filter>
     </ClInclude>
+    <ClInclude Include="inputclass.h">
+      <Filter>헤더 파일\System\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="soundclass.h">
+      <Filter>헤더 파일\System\Sound</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DirectXTutorial.cpp">
@@ -95,38 +116,41 @@
     <ClCompile Include="systemclass.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="inputclass.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="graphicsclass.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="d3dclass.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="cameraclass.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="bitmapclass.cpp">
-      <Filter>소스 파일\Model</Filter>
+      <Filter>소스 파일\Graphics\Model</Filter>
     </ClCompile>
     <ClCompile Include="textureclass.cpp">
-      <Filter>소스 파일\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="lightclass.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="textureshaderclass.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Graphics\Model</Filter>
     </ClCompile>
     <ClCompile Include="fontclass.cpp">
-      <Filter>소스 파일\Font</Filter>
+      <Filter>소스 파일\Graphics\Font</Filter>
     </ClCompile>
     <ClCompile Include="fontshaderclass.cpp">
-      <Filter>소스 파일\Font</Filter>
+      <Filter>소스 파일\Graphics\Font</Filter>
     </ClCompile>
     <ClCompile Include="textclass.cpp">
-      <Filter>소스 파일\Font</Filter>
+      <Filter>소스 파일\Graphics\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="inputclass.cpp">
+      <Filter>소스 파일\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="soundclass.cpp">
+      <Filter>소스 파일\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="cameraclass.cpp">
+      <Filter>소스 파일\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="d3dclass.cpp">
+      <Filter>소스 파일\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsclass.cpp">
+      <Filter>소스 파일\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="lightclass.cpp">
+      <Filter>소스 파일\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="textureshaderclass.cpp">
+      <Filter>소스 파일\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -181,5 +205,10 @@
     <Text Include="fontdata.txt">
       <Filter>Font</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="sound01.wav">
+      <Filter>Sound</Filter>
+    </Media>
   </ItemGroup>
 </Project>

@@ -153,6 +153,7 @@
     <ClInclude Include="lightclass.h" />
     <ClInclude Include="bitmapclass.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="soundclass.h" />
     <ClInclude Include="systemclass.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="textclass.h" />
@@ -169,6 +170,7 @@
     <ClCompile Include="inputclass.cpp" />
     <ClCompile Include="lightclass.cpp" />
     <ClCompile Include="bitmapclass.cpp" />
+    <ClCompile Include="soundclass.cpp" />
     <ClCompile Include="systemclass.cpp" />
     <ClCompile Include="textclass.cpp" />
     <ClCompile Include="textureclass.cpp" />
@@ -196,6 +198,9 @@
   <ItemGroup>
     <Text Include="cube.txt" />
     <Text Include="fontdata.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="sound01.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
