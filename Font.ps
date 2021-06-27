@@ -1,0 +1,38 @@
+//전역 변수
+Texture2D shaderTexture;
+SamplerState SampleType;
+
+cbuffer PixelBuffer
+{
+	float4 pixelColor;
+};
+
+//타입 정의
+
+struct PixelInputType
+{
+	float4 position : SV_POSITION;
+	float2 tex : TEXCOORD0;
+};
+
+float4 FontPixelShader(PixelInputType input) : SV_TARGET
+{
+	float4 color;
+
+	//이 위치에 텍스처 픽셀을 샘플링
+	color = shaderTexture.Sample(SampleType,input.tex);
+
+	//만약 색이 검정색이면 투명하게 만듬
+	if(color.r==0.0f)
+	{
+		color.a=0.0f;
+	}
+	//검정색이 아니라면 출력
+	else
+	{
+		color.a=1.0f;
+		color=color*pixelColor;
+	}
+
+	return color;
+}

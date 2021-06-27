@@ -1,0 +1,19 @@
+//전역변수
+Texture2D shaderTexture;
+SamplerState SampleType;
+
+//타입 정의
+struct PixelInputType
+{
+	float4 position : SV_POSITION;
+	float2 tex : TEXCOORD0;
+};
+
+float4 TexturePixelShader(PixelInputType input) : SV_TARGET
+{
+	float4 textureColor;
+	//텍스처와 샘플 타입을 이용하여 픽셀값을 결정
+	textureColor = shaderTexture.Sample(SampleType,input.tex);
+
+	return textureColor;
+}

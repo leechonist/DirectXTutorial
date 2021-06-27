@@ -1,0 +1,17 @@
+﻿  cameraclass.cpp
+D:\Users\sldoa\source\repos\DirectXTutorial\DirectXTutorial\cameraclass.h(7,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx10math.h': No such file or directory
+  colorshaderclass.cpp
+D:\Users\sldoa\source\repos\DirectXTutorial\DirectXTutorial\colorshaderclass.h(5,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx10math.h': No such file or directory
+  d3dclass.cpp
+D:\Users\sldoa\source\repos\DirectXTutorial\DirectXTutorial\d3dclass.h(12,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx10math.h': No such file or directory
+  DirectXTutorial.cpp
+D:\Users\sldoa\source\repos\DirectXTutorial\DirectXTutorial\d3dclass.h(12,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx10math.h': No such file or directory
+  graphicsclass.cpp
+D:\Users\sldoa\source\repos\DirectXTutorial\DirectXTutorial\d3dclass.h(12,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx10math.h': No such file or directory
+  inputclass.cpp
+D:\Users\sldoa\source\repos\DirectXTutorial\DirectXTutorial\inputclass.cpp(15,6): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
+  modelclass.cpp
+D:\Users\sldoa\source\repos\DirectXTutorial\DirectXTutorial\modelclass.h(9,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx10math.h': No such file or directory
+  systemclass.cpp
+D:\Users\sldoa\source\repos\DirectXTutorial\DirectXTutorial\d3dclass.h(12,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx10math.h': No such file or directory
+  코드를 생성하고 있습니다...

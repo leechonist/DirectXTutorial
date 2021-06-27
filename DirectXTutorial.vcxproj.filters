@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일\System">
+      <UniqueIdentifier>{179c71ad-a751-439f-b4e5-1ff271686570}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\System\Graphics">
+      <UniqueIdentifier>{cb2a93bd-3ea3-454e-be7d-281d2f4480c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{929bb2db-c9fb-4e46-8b00-4fca545e24bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\System\Graphics\Model">
+      <UniqueIdentifier>{fb6bcfec-3514-43d1-9c12-1cae78ac62d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Model">
+      <UniqueIdentifier>{722f8b7b-8f9f-4747-ad96-7e8cc8431dc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{64982ff9-090f-4e08-b9a9-84aab216ea76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Font">
+      <UniqueIdentifier>{b604bef0-a5a5-434e-8017-d6d988875f6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\System\Graphics\Font">
+      <UniqueIdentifier>{c6ef6962-e50d-456b-a787-dfceb4b84ad9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Font">
+      <UniqueIdentifier>{ca1212f0-6d59-40a2-9052-7a1e5df15298}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTutorial.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="systemclass.h">
+      <Filter>헤더 파일\System</Filter>
+    </ClInclude>
+    <ClInclude Include="inputclass.h">
+      <Filter>헤더 파일\System</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsclass.h">
+      <Filter>헤더 파일\System\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="d3dclass.h">
+      <Filter>헤더 파일\System\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="cameraclass.h">
+      <Filter>헤더 파일\System\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="textureclass.h">
+      <Filter>헤더 파일\System\Graphics\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="bitmapclass.h">
+      <Filter>헤더 파일\System\Graphics\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="lightclass.h">
+      <Filter>헤더 파일\System\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="textureshaderclass.h">
+      <Filter>헤더 파일\System\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="fontclass.h">
+      <Filter>헤더 파일\System\Graphics\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="textclass.h">
+      <Filter>헤더 파일\System\Graphics\Font</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DirectXTutorial.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="systemclass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="inputclass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsclass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="d3dclass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="cameraclass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="bitmapclass.cpp">
+      <Filter>소스 파일\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="textureclass.cpp">
+      <Filter>소스 파일\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="lightclass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="textureshaderclass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="fontclass.cpp">
+      <Filter>소스 파일\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="fontshaderclass.cpp">
+      <Filter>소스 파일\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="textclass.cpp">
+      <Filter>소스 파일\Font</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DirectXTutorial.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="DirectXTutorial.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="font.dds">
+      <Filter>Font</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Color.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Color.ps">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Texture.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Texture.ps">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Light.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Light.ps">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Font.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Font.ps">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="fontshaderclass.h">
+      <Filter>헤더 파일\System\Graphics\Font</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="cube.txt">
+      <Filter>Object</Filter>
+    </Text>
+    <Text Include="fontdata.txt">
+      <Filter>Font</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
