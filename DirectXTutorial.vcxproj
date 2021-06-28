@@ -150,10 +150,15 @@
     <ClInclude Include="fontclass.h" />
     <ClInclude Include="fpsclass.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="frustumclass.h" />
     <ClInclude Include="graphicsclass.h" />
     <ClInclude Include="inputclass.h" />
     <ClInclude Include="lightclass.h" />
     <ClInclude Include="bitmapclass.h" />
+    <ClInclude Include="lightshaderclass.h" />
+    <ClInclude Include="modelclass.h" />
+    <ClInclude Include="modellistclass.h" />
+    <ClInclude Include="position.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="soundclass.h" />
     <ClInclude Include="systemclass.h" />
@@ -171,10 +176,15 @@
     <ClCompile Include="fontclass.cpp" />
     <ClCompile Include="fontshaderclass.cpp" />
     <ClCompile Include="fpsclass.cpp" />
+    <ClCompile Include="frustumclass.cpp" />
     <ClCompile Include="graphicsclass.cpp" />
     <ClCompile Include="inputclass.cpp" />
     <ClCompile Include="lightclass.cpp" />
     <ClCompile Include="bitmapclass.cpp" />
+    <ClCompile Include="lightshaderclass.cpp" />
+    <ClCompile Include="modelclass.cpp" />
+    <ClCompile Include="modellistclass.cpp" />
+    <ClCompile Include="position.cpp" />
     <ClCompile Include="soundclass.cpp" />
     <ClCompile Include="systemclass.cpp" />
     <ClCompile Include="textclass.cpp" />
@@ -188,6 +198,7 @@
   <ItemGroup>
     <Image Include="DirectXTutorial.ico" />
     <Image Include="font.dds" />
+    <Image Include="seafloor.dds" />
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +215,7 @@
   <ItemGroup>
     <Text Include="cube.txt" />
     <Text Include="fontdata.txt" />
+    <Text Include="sphere.txt" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="sound01.wav" />

@@ -28,6 +28,7 @@ public:
 	bool Render(ID3D11DeviceContext*, D3DXMATRIX, D3DXMATRIX);
 	bool SetFps(int, ID3D11DeviceContext*);
 	bool SetCpu(int, ID3D11DeviceContext*);
+	bool SetRenderCount(int, ID3D11DeviceContext*);
 
 private:
 	bool InitializeSentence(SentenceType**, int, ID3D11Device*);

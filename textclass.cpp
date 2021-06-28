@@ -437,3 +437,22 @@ bool TextClass::SetCpu(int cpu, ID3D11DeviceContext* deviceContext)
 
 	return true;
 }
+
+bool TextClass::SetRenderCount(int renderCount, ID3D11DeviceContext* deviceContext)
+{
+	char tempString[16];
+	char countString[20];
+	bool result;
+
+	_itoa_s(renderCount,tempString, 10);
+
+	strcpy_s(countString, "RederCount: ");
+	strcat_s(countString, tempString);
+
+	result = UpdateSentence(m_sentence1, countString, 20, 20, 1.0f, 1.0f, 1.0f, deviceContext);
+	if (!result)
+	{
+		return false;
+	}
+	return true;
+}
