@@ -360,35 +360,76 @@ bool TextClass::RenderSentence(ID3D11DeviceContext* deviceContext, SentenceType*
 	return true;
 }
 
-bool TextClass::SetMousePosition(int mouseX, int mouseY, ID3D11DeviceContext* deviceContext)
+bool TextClass::SetFps(int fps, ID3D11DeviceContext* deviceContext)
 {
 	char tempString[16];
-	char mouseString[16];
+	char fpsString[16];
+	float red, green, blue;
 	bool result;
-
-	//mouseX를 정수에서 문자열로 변겅
-	_itoa_s(mouseX, tempString, 10);
 	
-	//mouseX stirng을 설정
-	strcpy_s(mouseString, "Mouse X: ");
-	strcat_s(mouseString, tempString);
+	//Fps를 10,000이하로 조정
+	if (fps > 9999)
+	{
+		fps = 9999;
+	}
 
-	//문장을 업데이트
-	result = UpdateSentence(m_sentence1, mouseString, 20, 20, 1.0f, 1.0f, 1.0f, deviceContext);
+	//Fps 정수를 문자열 형태로 변환
+	_itoa_s(fps, tempString, 10);
+	
+	//fps 문자열 설정
+	strcpy_s(fpsString, "Fps : ");
+	strcat_s(fpsString, tempString);
+
+	//만약 fps가 60 이상이라면 초록색
+	if (fps >= 60)
+	{
+		red = 0.0f;
+		green = 1.0f;
+		blue = 0.0f;
+	}
+
+	//만약 fps가 60 아래라면 노랑
+	if (fps < 60)
+	{
+		red = 1.0f;
+		green = 1.0f;
+		blue = 0.0f;
+	}
+
+	//만약 fps가 30 아래라면 빨강
+	if (fps < 30)
+	{
+		red = 1.0f;
+		green = 0.0f;
+		blue = 0.0f;
+	}
+
+	//문장 정점 버퍼에 새 문자열 정보를 업데이트
+	result = UpdateSentence(m_sentence1, fpsString, 20, 20, red, green, blue, deviceContext);
 	if (!result)
 	{
 		return false;
 	}
 
-	//mouseY를 정수에서 문자열로 변경
-	_itoa_s(mouseY, tempString, 10);
+	return true;
+}
 
-	//mouseY string을 설정
-	strcpy_s(mouseString, "Mouse Y: ");
-	strcat_s(mouseString, tempString);
+bool TextClass::SetCpu(int cpu, ID3D11DeviceContext* deviceContext)
+{
+	char tempString[16];
+	char cpuString[16];
+	bool result;
 
-	//문장을 업데이트
-	result = UpdateSentence(m_sentence2, mouseString, 20, 40, 1.0f, 1.0f, 1.0f, deviceContext);
+	//Fps 정수를 문자열 형태로 변환
+	_itoa_s(cpu, tempString, 10);
+
+	//fps 문자열 설정
+	strcpy_s(cpuString, "CPU : ");
+	strcat_s(cpuString, tempString);
+	strcat_s(cpuString, "%");
+
+	//문장 정점 버퍼에 새 문자열 정보를 업데이트
+	result = UpdateSentence(m_sentence2, cpuString, 20, 40, 0.0f,1.0f,0.0f, deviceContext);
 	if (!result)
 	{
 		return false;

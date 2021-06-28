@@ -58,6 +58,12 @@
     <Filter Include="Sound">
       <UniqueIdentifier>{6d7e5e48-069c-48c8-8750-9d0f825217cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\System\Information">
+      <UniqueIdentifier>{b5b4eae0-4e81-4765-91ed-8ec484c4816b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Information">
+      <UniqueIdentifier>{cbf4cae1-52ab-4166-ab32-23bbdc874bb1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -108,6 +114,15 @@
     <ClInclude Include="soundclass.h">
       <Filter>헤더 파일\System\Sound</Filter>
     </ClInclude>
+    <ClInclude Include="fpsclass.h">
+      <Filter>헤더 파일\System\Information</Filter>
+    </ClInclude>
+    <ClInclude Include="cpuclass.h">
+      <Filter>헤더 파일\System\Information</Filter>
+    </ClInclude>
+    <ClInclude Include="timerclass.h">
+      <Filter>헤더 파일\System\Information</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DirectXTutorial.cpp">
@@ -151,6 +166,15 @@
     </ClCompile>
     <ClCompile Include="textureshaderclass.cpp">
       <Filter>소스 파일\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="cpuclass.cpp">
+      <Filter>소스 파일\Information</Filter>
+    </ClCompile>
+    <ClCompile Include="timerclass.cpp">
+      <Filter>소스 파일\Information</Filter>
+    </ClCompile>
+    <ClCompile Include="fpsclass.cpp">
+      <Filter>소스 파일\Information</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

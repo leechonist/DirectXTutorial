@@ -4,8 +4,6 @@ SoundClass::SoundClass()
 	m_DirectSound = 0;
 	m_primaryBuffer = 0;
 	m_secondaryBuffer1 = 0;
-	flag = false;
-	m_end = 0;
 }
 SoundClass::SoundClass(const SoundClass& other)
 {
@@ -215,7 +213,6 @@ bool SoundClass::LoadWaveFile(char* filename, IDirectSoundBuffer8** secondaryBuf
 	bufferDesc.dwReserved = 0;
 	bufferDesc.lpwfxFormat = &waveFormat;
 	bufferDesc.guid3DAlgorithm = GUID_NULL;
-	m_end = waveFileHeader.dataSize;
 
 	//명시된 버퍼 설정 대로 임시 버퍼를 생성
 	result = m_DirectSound->CreateSoundBuffer(&bufferDesc, &tempBuffer, NULL);
@@ -296,7 +293,6 @@ void SoundClass::ShutdownWaveFile(IDirectSoundBuffer8** secondaryBuffer)
 
 bool SoundClass::PlayWaveFile()
 {
-	flag = false;
 	HRESULT result;
 	//사운드 버퍼의 시작 지점을 설정
 	result = m_secondaryBuffer1->SetCurrentPosition(0);
@@ -318,10 +314,5 @@ bool SoundClass::PlayWaveFile()
 	{
 		return false;
 	}
-	flag = true;
 	return true;
-}
-
-void SoundClass::Play()
-{
 }

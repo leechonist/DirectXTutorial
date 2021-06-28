@@ -86,17 +86,24 @@ void GraphicsClass::Shutdown()
 	}
 	return;
 }
-bool GraphicsClass::Frame(int mouseX,int mouseY)
+bool GraphicsClass::Frame(int fps,int cpu,float frameTime)
 {
 	bool result;
 
-	//마우스 위치를 설정
-	result = m_Text->SetMousePosition(mouseX, mouseY, m_D3D->GetDeviceContext());
+	//Fps를 설정
+	result = m_Text->SetFps(fps, m_D3D->GetDeviceContext());
 	if (!result)
 	{
 		return false;
 	}
-	
+
+	//Cpu를 설정
+	result = m_Text->SetCpu(cpu, m_D3D->GetDeviceContext());
+	if (!result)
+	{
+		return false;
+	}
+
 	//카메라 포지션을 설정
 	m_Camera->SetPosition(0.0f,0.0f,-10.0f);
 
