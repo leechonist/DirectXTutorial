@@ -4,6 +4,9 @@ SystemClass::SystemClass()
 {
 	m_Input = 0;
 	m_Graphics = 0;
+	m_Fps = 0;
+	m_Cpu = 0;
+	m_Timer = 0;
 }
 SystemClass::SystemClass(const SystemClass& other)
 {
@@ -49,10 +52,68 @@ bool SystemClass::Initialize()
 	{
 		return false;
 	}
+
+	//Fps 객체를 생성
+	m_Fps = new FpsClass;
+	if (!m_Fps)
+	{
+		return false;
+	}
+
+	//Fps 객체 초기화
+	m_Fps->Initialize();
+
+	//Cpu 객체 생성
+	m_Cpu = new CpuClass;
+	if (!m_Cpu)
+	{
+		return false;
+	}
+
+	//Cpu객체를 초기화
+	m_Cpu->Initialize();
+
+	//타이머 객체를 초기화
+	m_Timer = new TimerClass;
+	if (!m_Timer)
+	{
+		return false;
+	}
+
+	//타이머 객체를 초기화
+	result = m_Timer->Initialize();
+	if (!result)
+	{
+		MessageBox(m_hwnd, L"Could not Initialize the Timer object.", L"Error", MB_OK);
+		return false;
+	}
+
 	return true;
 }
 void SystemClass::Shutdown()
 {
+	//타이머 객체를 반환
+	if (m_Timer)
+	{
+		delete m_Timer;
+		m_Timer = 0;
+	}
+
+	//Cpu객체를 반환
+	if (m_Cpu)
+	{
+		m_Cpu->Shutdown();
+		delete m_Cpu;
+		m_Cpu = 0;
+	}
+
+	//Fps 객체를 반환
+	if (m_Fps)
+	{
+		delete m_Fps;
+		m_Fps = 0;
+	}
+
 	//graphics객체를 반환
 	if (m_Graphics)
 	{
@@ -117,24 +178,24 @@ void SystemClass::Run()
 bool SystemClass::Frame()
 {
 	bool result;
-	int mouseX, mouseY;
 	
+	//시스템 상태 처리
+	m_Timer->Frame();
+	m_Fps->Frame();
+	m_Cpu->Frame();
+
 	//입력 프레임 처리
 	result = m_Input->Frame();
 	if (!result)
 	{
-		MessageBox(m_hwnd, L"1", L"Error", MB_OK);
 		return false;
 	}
 	
-	//마우스 좌표를 가져옴
-	m_Input->GetMouseLocation(mouseX, mouseY);
 	
 	//그래픽객체에서 처리
-	result = m_Graphics->Frame(mouseX, mouseY);
+	result = m_Graphics->Frame(m_Fps->GetFps(),m_Cpu->GetCpuPercentage(),m_Timer->GetTime());
 	if (!result)
 	{
-		MessageBox(m_hwnd, L"2", L"Error", MB_OK);
 		return false;
 	}
 
@@ -145,6 +206,7 @@ bool SystemClass::Frame()
 	{
 		return false;
 	}
+
 	return true;
 }
 LRESULT CALLBACK SystemClass::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
