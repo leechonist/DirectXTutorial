@@ -4,9 +4,8 @@ SystemClass::SystemClass()
 {
 	m_Input = 0;
 	m_Graphics = 0;
-	m_Fps = 0;
-	m_Cpu = 0;
 	m_Timer = 0;
+	m_Position = 0;
 }
 SystemClass::SystemClass(const SystemClass& other)
 {
@@ -53,26 +52,6 @@ bool SystemClass::Initialize()
 		return false;
 	}
 
-	//Fps 객체를 생성
-	m_Fps = new FpsClass;
-	if (!m_Fps)
-	{
-		return false;
-	}
-
-	//Fps 객체 초기화
-	m_Fps->Initialize();
-
-	//Cpu 객체 생성
-	m_Cpu = new CpuClass;
-	if (!m_Cpu)
-	{
-		return false;
-	}
-
-	//Cpu객체를 초기화
-	m_Cpu->Initialize();
-
 	//타이머 객체를 초기화
 	m_Timer = new TimerClass;
 	if (!m_Timer)
@@ -88,30 +67,29 @@ bool SystemClass::Initialize()
 		return false;
 	}
 
+	//포지션 객체를 생성
+	m_Position = new PositionClass;
+	if (!m_Position)
+	{
+		return false;
+	}
+
 	return true;
 }
 void SystemClass::Shutdown()
 {
+	//포지션 객체를 반환
+	if (m_Position)
+	{
+		delete m_Position;
+		m_Position = 0;
+	}
+
 	//타이머 객체를 반환
 	if (m_Timer)
 	{
 		delete m_Timer;
 		m_Timer = 0;
-	}
-
-	//Cpu객체를 반환
-	if (m_Cpu)
-	{
-		m_Cpu->Shutdown();
-		delete m_Cpu;
-		m_Cpu = 0;
-	}
-
-	//Fps 객체를 반환
-	if (m_Fps)
-	{
-		delete m_Fps;
-		m_Fps = 0;
 	}
 
 	//graphics객체를 반환
@@ -177,12 +155,11 @@ void SystemClass::Run()
 }
 bool SystemClass::Frame()
 {
-	bool result;
-	
+	bool keyDown,result;
+	float rotationY;
+
 	//시스템 상태 처리
 	m_Timer->Frame();
-	m_Fps->Frame();
-	m_Cpu->Frame();
 
 	//입력 프레임 처리
 	result = m_Input->Frame();
@@ -191,9 +168,19 @@ bool SystemClass::Frame()
 		return false;
 	}
 	
-	
+	//포지션 객체의 프레임 시간을 갱신
+	m_Position->SetFrameTime(m_Timer->GetTime());
+
+	keyDown = m_Input->IsLeftArrowPressed();
+	m_Position->TurnLeft(keyDown);
+	keyDown = m_Input->IsRightArrowPressed();
+	m_Position->TurnRight(keyDown);
+
+	//현재 카메라 회전값을 저장
+	m_Position->GetRotation(rotationY);
+
 	//그래픽객체에서 처리
-	result = m_Graphics->Frame(m_Fps->GetFps(),m_Cpu->GetCpuPercentage(),m_Timer->GetTime());
+	result = m_Graphics->Frame(rotationY);
 	if (!result)
 	{
 		return false;

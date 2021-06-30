@@ -64,6 +64,12 @@
     <Filter Include="소스 파일\Information">
       <UniqueIdentifier>{cbf4cae1-52ab-4166-ab32-23bbdc874bb1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\System\Graphics\2D">
+      <UniqueIdentifier>{462c3986-71fe-4673-9b01-2d65a0e76e08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Graphics\2D">
+      <UniqueIdentifier>{bad59214-cbca-4df0-ac3f-71afe8c7989c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -89,12 +95,6 @@
     </ClInclude>
     <ClInclude Include="cameraclass.h">
       <Filter>헤더 파일\System\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="textureclass.h">
-      <Filter>헤더 파일\System\Graphics\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="bitmapclass.h">
-      <Filter>헤더 파일\System\Graphics\Model</Filter>
     </ClInclude>
     <ClInclude Include="lightclass.h">
       <Filter>헤더 파일\System\Graphics</Filter>
@@ -123,6 +123,27 @@
     <ClInclude Include="timerclass.h">
       <Filter>헤더 파일\System\Information</Filter>
     </ClInclude>
+    <ClInclude Include="frustumclass.h">
+      <Filter>헤더 파일\System\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="modellistclass.h">
+      <Filter>헤더 파일\System\Graphics\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="textureclass.h">
+      <Filter>헤더 파일\System\Graphics\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="bitmapclass.h">
+      <Filter>헤더 파일\System\Graphics\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="modelclass.h">
+      <Filter>헤더 파일\System\Graphics\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="lightshaderclass.h">
+      <Filter>헤더 파일\System\Graphics\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="position.h">
+      <Filter>헤더 파일\System\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DirectXTutorial.cpp">
@@ -130,12 +151,6 @@
     </ClCompile>
     <ClCompile Include="systemclass.cpp">
       <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="bitmapclass.cpp">
-      <Filter>소스 파일\Graphics\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="textureclass.cpp">
-      <Filter>소스 파일\Graphics\Model</Filter>
     </ClCompile>
     <ClCompile Include="fontclass.cpp">
       <Filter>소스 파일\Graphics\Font</Filter>
@@ -176,6 +191,27 @@
     <ClCompile Include="fpsclass.cpp">
       <Filter>소스 파일\Information</Filter>
     </ClCompile>
+    <ClCompile Include="frustumclass.cpp">
+      <Filter>소스 파일\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="modellistclass.cpp">
+      <Filter>소스 파일\Graphics\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="textureclass.cpp">
+      <Filter>소스 파일\Graphics\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="bitmapclass.cpp">
+      <Filter>소스 파일\Graphics\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="lightshaderclass.cpp">
+      <Filter>소스 파일\Graphics\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="modelclass.cpp">
+      <Filter>소스 파일\Graphics\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="position.cpp">
+      <Filter>소스 파일\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DirectXTutorial.rc">
@@ -191,6 +227,9 @@
     </Image>
     <Image Include="font.dds">
       <Filter>Font</Filter>
+    </Image>
+    <Image Include="seafloor.dds">
+      <Filter>Object</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -228,6 +267,9 @@
     </Text>
     <Text Include="fontdata.txt">
       <Filter>Font</Filter>
+    </Text>
+    <Text Include="sphere.txt">
+      <Filter>Object</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
