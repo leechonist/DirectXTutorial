@@ -70,6 +70,12 @@
     <Filter Include="소스 파일\Graphics\2D">
       <UniqueIdentifier>{bad59214-cbca-4df0-ac3f-71afe8c7989c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Graphics\Shader">
+      <UniqueIdentifier>{39d07c4c-bb08-4024-8bb5-b6fa1875fda4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\System\Graphics\Shader">
+      <UniqueIdentifier>{8122463e-d3b1-4a1a-ba85-e9e717f52358}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -97,9 +103,6 @@
       <Filter>헤더 파일\System\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="lightclass.h">
-      <Filter>헤더 파일\System\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="textureshaderclass.h">
       <Filter>헤더 파일\System\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="fontclass.h">
@@ -138,11 +141,20 @@
     <ClInclude Include="modelclass.h">
       <Filter>헤더 파일\System\Graphics\Model</Filter>
     </ClInclude>
-    <ClInclude Include="lightshaderclass.h">
-      <Filter>헤더 파일\System\Graphics\Model</Filter>
-    </ClInclude>
     <ClInclude Include="position.h">
       <Filter>헤더 파일\System\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="lightshaderclass.h">
+      <Filter>헤더 파일\System\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="textureshaderclass.h">
+      <Filter>헤더 파일\System\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="multitextureshader.h">
+      <Filter>헤더 파일\System\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="texturearrayclass.h">
+      <Filter>헤더 파일\System\Graphics\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -153,9 +165,6 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="fontclass.cpp">
-      <Filter>소스 파일\Graphics\Font</Filter>
-    </ClCompile>
-    <ClCompile Include="fontshaderclass.cpp">
       <Filter>소스 파일\Graphics\Font</Filter>
     </ClCompile>
     <ClCompile Include="textclass.cpp">
@@ -179,9 +188,6 @@
     <ClCompile Include="lightclass.cpp">
       <Filter>소스 파일\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="textureshaderclass.cpp">
-      <Filter>소스 파일\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="cpuclass.cpp">
       <Filter>소스 파일\Information</Filter>
     </ClCompile>
@@ -203,14 +209,26 @@
     <ClCompile Include="bitmapclass.cpp">
       <Filter>소스 파일\Graphics\2D</Filter>
     </ClCompile>
-    <ClCompile Include="lightshaderclass.cpp">
-      <Filter>소스 파일\Graphics\Model</Filter>
-    </ClCompile>
     <ClCompile Include="modelclass.cpp">
       <Filter>소스 파일\Graphics\Model</Filter>
     </ClCompile>
     <ClCompile Include="position.cpp">
       <Filter>소스 파일\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="lightshaderclass.cpp">
+      <Filter>소스 파일\Graphics\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="fontshaderclass.cpp">
+      <Filter>소스 파일\Graphics\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="textureshaderclass.cpp">
+      <Filter>소스 파일\Graphics\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="multitextureshader.cpp">
+      <Filter>소스 파일\Graphics\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="texturearrayclass.cpp">
+      <Filter>소스 파일\Graphics\Model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +247,12 @@
       <Filter>Font</Filter>
     </Image>
     <Image Include="seafloor.dds">
+      <Filter>Object</Filter>
+    </Image>
+    <Image Include="stone01.dds">
+      <Filter>Object</Filter>
+    </Image>
+    <Image Include="dirt01.dds">
       <Filter>Object</Filter>
     </Image>
   </ItemGroup>
@@ -257,8 +281,14 @@
     <None Include="Font.ps">
       <Filter>Shader</Filter>
     </None>
+    <None Include="Multitexture.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Multitexture.ps">
+      <Filter>Shader</Filter>
+    </None>
     <None Include="fontshaderclass.h">
-      <Filter>헤더 파일\System\Graphics\Font</Filter>
+      <Filter>헤더 파일\System\Graphics\Shader</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

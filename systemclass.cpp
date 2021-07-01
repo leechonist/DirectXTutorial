@@ -180,7 +180,7 @@ bool SystemClass::Frame()
 	m_Position->GetRotation(rotationY);
 
 	//그래픽객체에서 처리
-	result = m_Graphics->Frame(rotationY);
+	result = m_Graphics->Frame();
 	if (!result)
 	{
 		return false;

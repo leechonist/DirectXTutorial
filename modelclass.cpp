@@ -4,7 +4,7 @@ ModelClass::ModelClass()
 {
 	m_vertexBuffer = 0;
 	m_indexBuffer = 0;
-	m_texture = 0;
+	m_textureArray = 0;
 	m_model = 0;
 }
 ModelClass::ModelClass(const ModelClass& other)
@@ -14,7 +14,7 @@ ModelClass::~ModelClass()
 {
 }
 
-bool ModelClass::Initialize(ID3D11Device* device,char* modelFilename, const WCHAR* textureFilename)
+bool ModelClass::Initialize(ID3D11Device* device,char* modelFilename, WCHAR* textureFilename1,WCHAR* textureFilename2)
 {
 	bool result;
 
@@ -32,7 +32,7 @@ bool ModelClass::Initialize(ID3D11Device* device,char* modelFilename, const WCHA
 	}
 
 	//모델 텍스처를 초기화
-	result = LoadTexture(device, textureFilename);
+	result = LoadTextures(device, textureFilename1,textureFilename2);
 	if (!result)
 	{
 		return false;
@@ -44,7 +44,7 @@ bool ModelClass::Initialize(ID3D11Device* device,char* modelFilename, const WCHA
 void ModelClass::Shutdown()
 {
 	//모델 텍스처를 해제
-	ReleaseTexture();
+	ReleaseTextures();
 
 	//정점 버퍼와 인덱스 버퍼를 해제
 	ShutdownBuffers();
@@ -68,9 +68,9 @@ int ModelClass::GetIndexCount()
 	return m_indexCount;
 }
 
-ID3D11ShaderResourceView* ModelClass::GetTexture()
+ID3D11ShaderResourceView** ModelClass::GetTextureArray()
 {
-	return m_texture->GetTexture();
+	return m_textureArray->GetTextureArray();
 }
 
 bool ModelClass::InitializeBuffers(ID3D11Device* device)
@@ -193,33 +193,33 @@ void ModelClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 	return;
 }
 
-bool ModelClass::LoadTexture(ID3D11Device* device, const WCHAR* filename)
+bool ModelClass::LoadTextures(ID3D11Device* device, WCHAR* filename1, WCHAR* filename2)
 {
 	bool result;
 
 	//텍스처 오브젝트 생성
-	m_texture = new TextureClass;
-	if (!m_texture)
+	m_textureArray = new TextureArrayClass;
+	if (!m_textureArray)
 	{
 		return false;
 	}
 
 	//텍스처 오브젝트 초기화
-	result = m_texture->Initialize(device, filename);
+	result = m_textureArray->Initialize(device, filename1,filename2);
 	if (!result)
 	{
 		return false;
 	}
 	return true;
 }
-void ModelClass::ReleaseTexture()
+void ModelClass::ReleaseTextures()
 {
 	//텍스처 오브젝트를 해제
-	if (m_texture)
+	if (m_textureArray)
 	{
-		m_texture->Shutdown();
-		delete m_texture;
-		m_texture = 0;
+		m_textureArray->Shutdown();
+		delete m_textureArray;
+		m_textureArray = 0;
 	}
 	return;
 }
