@@ -8,6 +8,9 @@
 
 #include "inputclass.h"
 #include "graphicsclass.h"
+#include "timerclass.h"
+#include "position.h"
+
 class SystemClass
 {
 public:
@@ -32,6 +35,8 @@ private:
 
 	InputClass* m_Input;
 	GraphicsClass* m_Graphics;
+	TimerClass* m_Timer;
+	PositionClass* m_Position;
 };
 
 static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);

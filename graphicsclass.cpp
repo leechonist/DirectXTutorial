@@ -4,7 +4,8 @@ GraphicsClass::GraphicsClass()
 {
 	m_D3D = 0;
 	m_Camera = 0;
-	m_Text = 0;
+	m_Model = 0;
+	m_MultiTextureShader = 0;
 }
 GraphicsClass::GraphicsClass(const GraphicsClass& other)
 {
@@ -44,30 +45,55 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	m_Camera->Render();
 	m_Camera->GetViewMatrix(baseViewMatrix);
 
-	//텍스트 객체를 생성
-	m_Text = new TextClass;
-	if (!m_Text)
+	//모델 객체를 생성
+	m_Model = new ModelClass;
+	if (!m_Model)
+	{
+		return false;
+	}
+	
+	//모델 객체를 초기화
+	result = m_Model->Initialize(m_D3D->GetDevice(), (char*)"sphere.txt",(WCHAR*) L"stone01.dds",(WCHAR*) L"dirt01.dds");
+	if (!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
+		return false;
+	}
+
+	//멀티 텍스처 쉐이더 객체를 생성
+	m_MultiTextureShader = new MultiTextureShaderClass;
+	if (!m_MultiTextureShader)
 	{
 		return false;
 	}
 
-	//텍스트 객체를 초기화
-	result = m_Text->Initialize(m_D3D->GetDevice(), m_D3D->GetDeviceContext(),hwnd,screenWidth,screenHeight,baseViewMatrix);
+	//멀티텍스처 쉐이더 객체를 초기화
+	result = m_MultiTextureShader->Initialize(m_D3D->GetDevice(), hwnd);
 	if (!result)
 	{
-		MessageBox(hwnd, L"Could not initialize the text object.", L"Error", MB_OK);
+		MessageBox(hwnd, L"Could not initialize the multi texture shader object.", L"Error", MB_OK);
+		return false;
 	}
+
 
 	return true;
 }
 void GraphicsClass::Shutdown()
 {
-	//textureShader 객체를 반환
-	if (m_Text)
+	//멀티 텍스처 쉐이더 객체 반환
+	if (m_MultiTextureShader)
 	{
-		m_Text->Shutdown();
-		delete m_Text;
-		m_Text = 0;
+		m_MultiTextureShader->Shutdown();
+		delete m_MultiTextureShader;
+		m_MultiTextureShader = 0;
+	}
+	
+	//모델 객체 반환
+	if (m_Model)
+	{
+		m_Model->Shutdown();
+		delete m_Model;
+		m_Model = 0;
 	}
 
 	//Camera객체를 반환
@@ -86,26 +112,19 @@ void GraphicsClass::Shutdown()
 	}
 	return;
 }
-bool GraphicsClass::Frame(int mouseX,int mouseY)
+bool GraphicsClass::Frame()
 {
 	bool result;
 
-	//마우스 위치를 설정
-	result = m_Text->SetMousePosition(mouseX, mouseY, m_D3D->GetDeviceContext());
-	if (!result)
-	{
-		return false;
-	}
-	
 	//카메라 포지션을 설정
-	m_Camera->SetPosition(0.0f,0.0f,-10.0f);
+	m_Camera->SetPosition(0.0f,0.0f,-5.0f);
 
 	return true;
 }
 bool GraphicsClass::Render()
 {
 	D3DXMATRIX worldMatrix, viewMatrix, projectionMatrix,orthoMatrix;
-	bool result;
+
 	//씬 그리기를 시작하기 위해 버퍼의 내용을 지움
 	m_D3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
 
@@ -118,24 +137,11 @@ bool GraphicsClass::Render()
 	m_D3D->GetProjectionMatrix(projectionMatrix);
 	m_D3D->GetOrthoMatrix(orthoMatrix);
 
-	//2D 렌더링을 시작하기 위해 Z Buffer를 꺼줌
-	m_D3D->TurnZBufferOff();
+	//모델의 정점과 인덱스를 그래픽 파이프라인에 전달
+	m_Model->Render(m_D3D->GetDeviceContext());
 
-	//텍스트를 렌더링 하기 위해 알파 블렌딩을 켬
-	m_D3D->TurnOnAlphaBlending();
-
-	//텍스트를 출력
-	result = m_Text->Render(m_D3D->GetDeviceContext(), worldMatrix, orthoMatrix);
-	if (!result)
-	{
-		return false;
-	}
-
-	//텍스트를 모두 출력했으면 알파 블렌딩 종료
-	m_D3D->TurnOffAlphaBlending();
-
-	//2D렌더링이 끝났으면 Z Buffer를 켜줌
-	m_D3D->TurnZBufferOn();
+	//
+	m_MultiTextureShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, m_Model->GetTextureArray());
 
 	//버퍼에 그려진 씬을 화면에 표시
 	m_D3D->EndScene();
