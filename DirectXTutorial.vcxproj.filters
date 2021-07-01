@@ -102,15 +102,6 @@
     <ClInclude Include="cameraclass.h">
       <Filter>헤더 파일\System\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="lightclass.h">
-      <Filter>헤더 파일\System\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="fontclass.h">
-      <Filter>헤더 파일\System\Graphics\Font</Filter>
-    </ClInclude>
-    <ClInclude Include="textclass.h">
-      <Filter>헤더 파일\System\Graphics\Font</Filter>
-    </ClInclude>
     <ClInclude Include="inputclass.h">
       <Filter>헤더 파일\System\Input</Filter>
     </ClInclude>
@@ -125,9 +116,6 @@
     </ClInclude>
     <ClInclude Include="timerclass.h">
       <Filter>헤더 파일\System\Information</Filter>
-    </ClInclude>
-    <ClInclude Include="frustumclass.h">
-      <Filter>헤더 파일\System\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="modellistclass.h">
       <Filter>헤더 파일\System\Graphics\Model</Filter>
@@ -144,17 +132,11 @@
     <ClInclude Include="position.h">
       <Filter>헤더 파일\System\Input</Filter>
     </ClInclude>
-    <ClInclude Include="lightshaderclass.h">
-      <Filter>헤더 파일\System\Graphics\Shader</Filter>
-    </ClInclude>
-    <ClInclude Include="textureshaderclass.h">
-      <Filter>헤더 파일\System\Graphics\Shader</Filter>
-    </ClInclude>
-    <ClInclude Include="multitextureshader.h">
-      <Filter>헤더 파일\System\Graphics\Shader</Filter>
-    </ClInclude>
     <ClInclude Include="texturearrayclass.h">
       <Filter>헤더 파일\System\Graphics\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="lightmapshaderclass.h">
+      <Filter>헤더 파일\System\Graphics\Shader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -163,12 +145,6 @@
     </ClCompile>
     <ClCompile Include="systemclass.cpp">
       <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="fontclass.cpp">
-      <Filter>소스 파일\Graphics\Font</Filter>
-    </ClCompile>
-    <ClCompile Include="textclass.cpp">
-      <Filter>소스 파일\Graphics\Font</Filter>
     </ClCompile>
     <ClCompile Include="inputclass.cpp">
       <Filter>소스 파일\Input</Filter>
@@ -215,20 +191,11 @@
     <ClCompile Include="position.cpp">
       <Filter>소스 파일\Input</Filter>
     </ClCompile>
-    <ClCompile Include="lightshaderclass.cpp">
-      <Filter>소스 파일\Graphics\Shader</Filter>
-    </ClCompile>
-    <ClCompile Include="fontshaderclass.cpp">
-      <Filter>소스 파일\Graphics\Shader</Filter>
-    </ClCompile>
-    <ClCompile Include="textureshaderclass.cpp">
-      <Filter>소스 파일\Graphics\Shader</Filter>
-    </ClCompile>
-    <ClCompile Include="multitextureshader.cpp">
-      <Filter>소스 파일\Graphics\Shader</Filter>
-    </ClCompile>
     <ClCompile Include="texturearrayclass.cpp">
       <Filter>소스 파일\Graphics\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="lightmapshaderclass.cpp">
+      <Filter>소스 파일\Graphics\Shader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +220,9 @@
       <Filter>Object</Filter>
     </Image>
     <Image Include="dirt01.dds">
+      <Filter>Object</Filter>
+    </Image>
+    <Image Include="light01.dds">
       <Filter>Object</Filter>
     </Image>
   </ItemGroup>
@@ -287,8 +257,11 @@
     <None Include="Multitexture.ps">
       <Filter>Shader</Filter>
     </None>
-    <None Include="fontshaderclass.h">
-      <Filter>헤더 파일\System\Graphics\Shader</Filter>
+    <None Include="Lightmap.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Lightmap.ps">
+      <Filter>Shader</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -147,27 +147,21 @@
     <ClInclude Include="cpuclass.h" />
     <ClInclude Include="d3dclass.h" />
     <ClInclude Include="DirectXTutorial.h" />
-    <ClInclude Include="fontclass.h" />
     <ClInclude Include="fpsclass.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="frustumclass.h" />
     <ClInclude Include="graphicsclass.h" />
     <ClInclude Include="inputclass.h" />
-    <ClInclude Include="lightclass.h" />
     <ClInclude Include="bitmapclass.h" />
-    <ClInclude Include="lightshaderclass.h" />
+    <ClInclude Include="lightmapshaderclass.h" />
     <ClInclude Include="modelclass.h" />
     <ClInclude Include="modellistclass.h" />
-    <ClInclude Include="multitextureshader.h" />
     <ClInclude Include="position.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="soundclass.h" />
     <ClInclude Include="systemclass.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="textclass.h" />
     <ClInclude Include="texturearrayclass.h" />
     <ClInclude Include="textureclass.h" />
-    <ClInclude Include="textureshaderclass.h" />
     <ClInclude Include="timerclass.h" />
   </ItemGroup>
   <ItemGroup>
@@ -175,25 +169,20 @@
     <ClCompile Include="cpuclass.cpp" />
     <ClCompile Include="d3dclass.cpp" />
     <ClCompile Include="DirectXTutorial.cpp" />
-    <ClCompile Include="fontclass.cpp" />
-    <ClCompile Include="fontshaderclass.cpp" />
     <ClCompile Include="fpsclass.cpp" />
     <ClCompile Include="frustumclass.cpp" />
     <ClCompile Include="graphicsclass.cpp" />
     <ClCompile Include="inputclass.cpp" />
     <ClCompile Include="lightclass.cpp" />
     <ClCompile Include="bitmapclass.cpp" />
-    <ClCompile Include="lightshaderclass.cpp" />
+    <ClCompile Include="lightmapshaderclass.cpp" />
     <ClCompile Include="modelclass.cpp" />
     <ClCompile Include="modellistclass.cpp" />
-    <ClCompile Include="multitextureshader.cpp" />
     <ClCompile Include="position.cpp" />
     <ClCompile Include="soundclass.cpp" />
     <ClCompile Include="systemclass.cpp" />
-    <ClCompile Include="textclass.cpp" />
     <ClCompile Include="texturearrayclass.cpp" />
     <ClCompile Include="textureclass.cpp" />
-    <ClCompile Include="textureshaderclass.cpp" />
     <ClCompile Include="timerclass.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +192,7 @@
     <Image Include="DirectXTutorial.ico" />
     <Image Include="dirt01.dds" />
     <Image Include="font.dds" />
+    <Image Include="light01.dds" />
     <Image Include="seafloor.dds" />
     <Image Include="small.ico" />
     <Image Include="stone01.dds" />
@@ -212,9 +202,10 @@
     <None Include="Color.vs" />
     <None Include="Font.ps" />
     <None Include="Font.vs" />
-    <None Include="fontshaderclass.h" />
     <None Include="Light.ps" />
     <None Include="Light.vs" />
+    <None Include="Lightmap.ps" />
+    <None Include="Lightmap.vs" />
     <None Include="Multitexture.ps" />
     <None Include="Multitexture.vs" />
     <None Include="Texture.vs" />
