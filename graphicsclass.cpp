@@ -5,7 +5,7 @@ GraphicsClass::GraphicsClass()
 	m_D3D = 0;
 	m_Camera = 0;
 	m_Model = 0;
-	m_LightMapShader = 0;
+	m_AlphaMapShader = 0;
 }
 GraphicsClass::GraphicsClass(const GraphicsClass& other)
 {
@@ -53,7 +53,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	}
 	
 	//모델 객체를 초기화
-	result = m_Model->Initialize(m_D3D->GetDevice(), (char*)"sphere.txt",(WCHAR*) L"stone01.dds",(WCHAR*) L"light01.dds");
+	result = m_Model->Initialize(m_D3D->GetDevice(), (char*)"sphere.txt",(WCHAR*) L"stone01.dds",(WCHAR*) L"dirt01.dds",(WCHAR*)L"alpha01.dds");
 	if (!result)
 	{
 		MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
@@ -61,17 +61,17 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	}
 
 	//멀티 텍스처 쉐이더 객체를 생성
-	m_LightMapShader = new LightMapShaderClass;
-	if (!m_LightMapShader)
+	m_AlphaMapShader = new AlphaMapShaderClass;
+	if (!m_AlphaMapShader)
 	{
 		return false;
 	}
 
 	//멀티텍스처 쉐이더 객체를 초기화
-	result = m_LightMapShader->Initialize(m_D3D->GetDevice(), hwnd);
+	result = m_AlphaMapShader->Initialize(m_D3D->GetDevice(), hwnd);
 	if (!result)
 	{
-		MessageBox(hwnd, L"Could not initialize the multi texture shader object.", L"Error", MB_OK);
+		MessageBox(hwnd, L"Could not initialize the alphamap texture shader object.", L"Error", MB_OK);
 		return false;
 	}
 
@@ -81,11 +81,11 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 void GraphicsClass::Shutdown()
 {
 	//멀티 텍스처 쉐이더 객체 반환
-	if (m_LightMapShader)
+	if (m_AlphaMapShader)
 	{
-		m_LightMapShader->Shutdown();
-		delete m_LightMapShader;
-		m_LightMapShader = 0;
+		m_AlphaMapShader->Shutdown();
+		delete m_AlphaMapShader;
+		m_AlphaMapShader = 0;
 	}
 	
 	//모델 객체 반환
@@ -141,7 +141,7 @@ bool GraphicsClass::Render()
 	m_Model->Render(m_D3D->GetDeviceContext());
 
 	//
-	m_LightMapShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, m_Model->GetTextureArray());
+	m_AlphaMapShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, m_Model->GetTextureArray());
 
 	//버퍼에 그려진 씬을 화면에 표시
 	m_D3D->EndScene();

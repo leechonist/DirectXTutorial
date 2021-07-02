@@ -4,7 +4,7 @@
 #include "d3dclass.h"
 #include "cameraclass.h"
 #include "modelclass.h"
-#include "lightmapshaderclass.h"
+#include "alphamapshaderclass.h"
 
 //전역변수
 const bool FULL_SCREEN = false;
@@ -28,7 +28,7 @@ private:
 	D3DClass* m_D3D;
 	CameraClass* m_Camera;
 	ModelClass* m_Model;
-	LightMapShaderClass* m_LightMapShader;
+	AlphaMapShaderClass* m_AlphaMapShader;
 };
 
 #endif

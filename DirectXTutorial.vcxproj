@@ -152,7 +152,7 @@
     <ClInclude Include="graphicsclass.h" />
     <ClInclude Include="inputclass.h" />
     <ClInclude Include="bitmapclass.h" />
-    <ClInclude Include="lightmapshaderclass.h" />
+    <ClInclude Include="alphamapshaderclass.h" />
     <ClInclude Include="modelclass.h" />
     <ClInclude Include="modellistclass.h" />
     <ClInclude Include="position.h" />
@@ -175,7 +175,7 @@
     <ClCompile Include="inputclass.cpp" />
     <ClCompile Include="lightclass.cpp" />
     <ClCompile Include="bitmapclass.cpp" />
-    <ClCompile Include="lightmapshaderclass.cpp" />
+    <ClCompile Include="alphamapshaderclass.cpp" />
     <ClCompile Include="modelclass.cpp" />
     <ClCompile Include="modellistclass.cpp" />
     <ClCompile Include="position.cpp" />
@@ -189,6 +189,7 @@
     <ResourceCompile Include="DirectXTutorial.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="alpha01.dds" />
     <Image Include="DirectXTutorial.ico" />
     <Image Include="dirt01.dds" />
     <Image Include="font.dds" />
@@ -198,6 +199,8 @@
     <Image Include="stone01.dds" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Alphamap.ps" />
+    <None Include="Alphamap.vs" />
     <None Include="Color.ps" />
     <None Include="Color.vs" />
     <None Include="Font.ps" />
