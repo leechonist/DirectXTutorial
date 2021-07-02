@@ -1,5 +1,5 @@
-#ifndef _LIGHT_MAP_SHADER_CLASS_H
-#define _LIGHT_MAP_SHADER_CLASS_H
+#ifndef _ALPHA_MAP_SHADER_CLASS_H
+#define _ALPHA_MAP_SHADER_CLASS_H
 
 #include <d3d11.h>
 #include <d3dx10math.h>
@@ -7,7 +7,7 @@
 #include <fstream>
 using namespace std;
 
-class LightMapShaderClass
+class AlphaMapShaderClass
 {
 private:
 	struct MatrixBufferType
@@ -18,9 +18,9 @@ private:
 	};
 
 public:
-	LightMapShaderClass();
-	LightMapShaderClass(const LightMapShaderClass&);
-	~LightMapShaderClass();
+	AlphaMapShaderClass();
+	AlphaMapShaderClass(const AlphaMapShaderClass&);
+	~AlphaMapShaderClass();
 
 	bool Initialize(ID3D11Device*, HWND);
 	void Shutdown();

@@ -1,7 +1,7 @@
-#include "lightmapshaderclass.h"
+#include "Alphamapshaderclass.h"
 
 
-LightMapShaderClass::LightMapShaderClass()
+AlphaMapShaderClass::AlphaMapShaderClass()
 {
 	m_vertexShader = 0;
 	m_pixelShader = 0;
@@ -11,23 +11,23 @@ LightMapShaderClass::LightMapShaderClass()
 }
 
 
-LightMapShaderClass::LightMapShaderClass(const LightMapShaderClass& other)
+AlphaMapShaderClass::AlphaMapShaderClass(const AlphaMapShaderClass& other)
 {
 }
 
 
-LightMapShaderClass::~LightMapShaderClass()
+AlphaMapShaderClass::~AlphaMapShaderClass()
 {
 }
 
 
-bool LightMapShaderClass::Initialize(ID3D11Device* device, HWND hwnd)
+bool AlphaMapShaderClass::Initialize(ID3D11Device* device, HWND hwnd)
 {
 	bool result;
 
 
 	// Initialize the vertex and pixel shaders.
-	result = InitializeShader(device, hwnd, (WCHAR*)L"lightmap.vs", (WCHAR*)L"lightmap.ps");
+	result = InitializeShader(device, hwnd, (WCHAR*)L"alphamap.vs", (WCHAR*)L"alphamap.ps");
 	if (!result)
 	{
 		return false;
@@ -37,7 +37,7 @@ bool LightMapShaderClass::Initialize(ID3D11Device* device, HWND hwnd)
 }
 
 
-void LightMapShaderClass::Shutdown()
+void AlphaMapShaderClass::Shutdown()
 {
 	// Shutdown the vertex and pixel shaders as well as the related objects.
 	ShutdownShader();
@@ -46,7 +46,7 @@ void LightMapShaderClass::Shutdown()
 }
 
 
-bool LightMapShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, D3DXMATRIX worldMatrix,
+bool AlphaMapShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, D3DXMATRIX worldMatrix,
 	D3DXMATRIX viewMatrix, D3DXMATRIX projectionMatrix, ID3D11ShaderResourceView** textureArray)
 {
 	bool result;
@@ -66,7 +66,7 @@ bool LightMapShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCo
 }
 
 
-bool LightMapShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* vsFilename, WCHAR* psFilename)
+bool AlphaMapShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* vsFilename, WCHAR* psFilename)
 {
 	HRESULT result;
 	ID3D10Blob* errorMessage;
@@ -84,7 +84,7 @@ bool LightMapShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHA
 	pixelShaderBuffer = 0;
 
 	// Compile the vertex shader code.
-	result = D3DX11CompileFromFile(vsFilename, NULL, NULL, "LightMapVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS,
+	result = D3DX11CompileFromFile(vsFilename, NULL, NULL, "AlphaMapVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS,
 		0, NULL, &vertexShaderBuffer, &errorMessage, NULL);
 	if (FAILED(result))
 	{
@@ -103,7 +103,7 @@ bool LightMapShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHA
 	}
 
 	// Compile the pixel shader code.
-	result = D3DX11CompileFromFile(psFilename, NULL, NULL, "LightMapPixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS,
+	result = D3DX11CompileFromFile(psFilename, NULL, NULL, "AlphaMapPixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS,
 		0, NULL, &pixelShaderBuffer, &errorMessage, NULL);
 	if (FAILED(result))
 	{
@@ -214,7 +214,7 @@ bool LightMapShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHA
 }
 
 
-void LightMapShaderClass::ShutdownShader()
+void AlphaMapShaderClass::ShutdownShader()
 {
 	// Release the sampler state.
 	if (m_sampleState)
@@ -255,7 +255,7 @@ void LightMapShaderClass::ShutdownShader()
 }
 
 
-void LightMapShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND hwnd, WCHAR* shaderFilename)
+void AlphaMapShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND hwnd, WCHAR* shaderFilename)
 {
 	char* compileErrors;
 	unsigned long bufferSize, i;
@@ -291,7 +291,7 @@ void LightMapShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWN
 }
 
 
-bool LightMapShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, D3DXMATRIX worldMatrix,
+bool AlphaMapShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, D3DXMATRIX worldMatrix,
 	D3DXMATRIX viewMatrix, D3DXMATRIX projectionMatrix,
 	ID3D11ShaderResourceView** textureArray)
 {
@@ -331,13 +331,13 @@ bool LightMapShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext
 	deviceContext->VSSetConstantBuffers(bufferNumber, 1, &m_matrixBuffer);
 
 	// Set shader texture array resource in the pixel shader.
-	deviceContext->PSSetShaderResources(0, 2, textureArray);
+	deviceContext->PSSetShaderResources(0, 3, textureArray);
 
 	return true;
 }
 
 
-void LightMapShaderClass::RenderShader(ID3D11DeviceContext* deviceContext, int indexCount)
+void AlphaMapShaderClass::RenderShader(ID3D11DeviceContext* deviceContext, int indexCount)
 {
 	// Set the vertex input layout.
 	deviceContext->IASetInputLayout(m_layout);

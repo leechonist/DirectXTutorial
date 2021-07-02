@@ -135,7 +135,7 @@
     <ClInclude Include="texturearrayclass.h">
       <Filter>헤더 파일\System\Graphics\Model</Filter>
     </ClInclude>
-    <ClInclude Include="lightmapshaderclass.h">
+    <ClInclude Include="alphamapshaderclass.h">
       <Filter>헤더 파일\System\Graphics\Shader</Filter>
     </ClInclude>
   </ItemGroup>
@@ -194,7 +194,7 @@
     <ClCompile Include="texturearrayclass.cpp">
       <Filter>소스 파일\Graphics\Model</Filter>
     </ClCompile>
-    <ClCompile Include="lightmapshaderclass.cpp">
+    <ClCompile Include="alphamapshaderclass.cpp">
       <Filter>소스 파일\Graphics\Shader</Filter>
     </ClCompile>
   </ItemGroup>
@@ -223,6 +223,9 @@
       <Filter>Object</Filter>
     </Image>
     <Image Include="light01.dds">
+      <Filter>Object</Filter>
+    </Image>
+    <Image Include="alpha01.dds">
       <Filter>Object</Filter>
     </Image>
   </ItemGroup>
@@ -261,6 +264,12 @@
       <Filter>Shader</Filter>
     </None>
     <None Include="Lightmap.ps">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Alphamap.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Alphamap.ps">
       <Filter>Shader</Filter>
     </None>
   </ItemGroup>
